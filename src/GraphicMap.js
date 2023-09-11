@@ -37,6 +37,7 @@ export class GraphicMap {
 		this.container.style.imageRendering = 'pixelated';
 		this.container.style.width = `${parameters.width * this.#cellWidth}px`;
 		this.container.style.height = `${parameters.height * this.#cellHeight}px`;
+		this.container.style.overflow = 'hidden';
 		parent.append(this.container);
 	}
 
