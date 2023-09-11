@@ -21,7 +21,9 @@ export class Ui {
 		if (System.isLocal) {
 			menu.append(this.createWebSiteLink());
 		}
-		menu.append(this.createCurrentCartridgeUi());
+		if (System.isLocal) {
+			menu.append(this.createCurrentCartridgeUi());
+		}
 		if (System.isLocal) {
 			menu.append(this.createLoadCartridgeUi());
 		}
