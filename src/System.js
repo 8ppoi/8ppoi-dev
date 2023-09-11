@@ -14,7 +14,7 @@ export class System {
 	static cartridgeName;
 
 	static async start(cartridgeName) {
-		cartridgeName = cartridgeName.replace(/#.*/, '');
+		if (cartridgeName) cartridgeName = cartridgeName.replace(/#.*/, '');
 		this.isLocal = !cartridgeName ? true : false;
 		Ui.start(document.getElementById('uiContainer'));
 		await this.loadCartridge(cartridgeName || localStorage.getItem('cartridgeName') || 'WelcomeTo8ppoi');
