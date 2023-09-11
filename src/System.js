@@ -8,7 +8,7 @@ import { Sound } from './Sound.js';
 
 export class System {
 
-	static isLoacal;
+	static isLocal;
 	static #busy;
 	static fps = parseInt(localStorage.getItem('fps')) || 60;
 	static cartridgeName;
@@ -35,7 +35,9 @@ export class System {
 	static loadCartridge(cartridgeName) {
 		localStorage.setItem('cartridgeName', cartridgeName);
 		this.cartridgeName = cartridgeName;
-		Ui.cartridgeNameElement.innerText = cartridgeName;
+		if (this.isLocal) {
+			Ui.cartridgeNameElement.innerText = cartridgeName;
+		}
 		document.title = `8ppoi - ${cartridgeName}`;
 		Graphic.destroyAll();
 		Graphic.revokeObjectUrls();
